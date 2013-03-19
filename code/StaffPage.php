@@ -11,34 +11,24 @@
 		);
 		
 		static $many_many = array(
-			'StaffMembers' => 'Staff'
+
 		);
 		
 		static $allowed_actions = array(
-			'view'
+			//'view'
 		);
 		
 		public function getCMSFields() {	
 			$fields = parent::getCMSFields();
 			
 			// Slides
-			$PhotosGridFieldConfig = GridFieldConfig::create()->addComponents(
-				new GridFieldToolbarHeader(),
-				new GridFieldSortableHeader(),
-				new GridFieldDataColumns(),
-				new GridFieldPaginator(10),
-				new GridFieldEditButton(),
-				new GridFieldDeleteAction(),
-				new GridFieldDetailForm(),
-				new GridFieldBulkEditingTools(),
-				new GridFieldBulkImageUpload(),
-				new GridFieldSortableRows("SortOrder")
-			);
-			$PhotosGridFieldConfig->getComponentByType('GridFieldBulkImageUpload')->setConfig('folderName', 'home-slides');
+			$config = GridFieldConfig_RecordEditor::create();	
+			//$config->addComponent(new GridFieldBulkEditingTools());
+			//$config->addComponent(new GridFieldBulkImageUpload());
 		    
-			$PhotosField = new GridField("StaffMembers", "Staff", $this->owner->StaffMembers(), $PhotosGridFieldConfig);
+			$PhotosField = GridField::create("StaffMembers", "Staff", Staff::get(), $config);
 		    
-		    $fields->addFieldToTab("Root.Slides", $PhotosField);
+		    $fields->addFieldToTab("Root.Staff", $PhotosField);
 			
 	        return $fields;
 		}
@@ -46,6 +36,10 @@
 	}
 	
 	class StaffPage_Controller extends Page_Controller {
+	
+		function StaffMembers() {
+			return Staff::get();
+		}
 	
 		
 		function view() {
