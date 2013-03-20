@@ -21,10 +21,10 @@
 		public function getCMSFields() {	
 			$fields = parent::getCMSFields();
 			
-			// Slides
+			// Staff
 			$config = GridFieldConfig_RecordEditor::create();	
-			//$config->addComponent(new GridFieldBulkEditingTools());
-			//$config->addComponent(new GridFieldBulkImageUpload());
+			$config->addComponent(new GridFieldBulkEditingTools());
+			$config->addComponent(new GridFieldBulkImageUpload());
 		    
 			$PhotosField = GridField::create("StaffMembers", "Staff", Staff::get(), $config);
 		    
