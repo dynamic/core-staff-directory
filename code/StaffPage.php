@@ -25,8 +25,9 @@
 			$config = GridFieldConfig_RecordEditor::create();	
 			$config->addComponent(new GridFieldBulkEditingTools());
 			$config->addComponent(new GridFieldBulkImageUpload());
+			$config->addComponent(new GridFieldSortableRows("SortOrder"));
 		    
-			$PhotosField = GridField::create("StaffMembers", "Staff", Staff::get(), $config);
+			$PhotosField = GridField::create("StaffMembers", "Staff", Staff::get()->sort('SortOrder'), $config);
 		    
 		    $fields->addFieldToTab("Root.Staff", $PhotosField);
 			
@@ -38,7 +39,7 @@
 	class StaffPage_Controller extends Page_Controller {
 	
 		function StaffMembers() {
-			return Staff::get();
+			return Staff::get()->sort('SortOrder');
 		}
 	
 		
