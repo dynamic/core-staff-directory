@@ -14,6 +14,8 @@
 
 		);
 		
+		static $description = 'Displays photos and info of staff members';
+		
 		static $allowed_actions = array(
 			//'view'
 		);
