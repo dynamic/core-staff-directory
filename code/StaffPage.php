@@ -1,44 +1,42 @@
 <?php
 
-	class StaffPage extends Page {
+	class StaffPage extends HolderPage {
 	
-		static $db = array(
+		private static $db = array(
 			
 		);
 		
-		static $has_one = array(
+		private static $has_one = array(
 		
 		);
 		
-		static $many_many = array(
+		private static $many_many = array(
 
 		);
+
+        private static $singular_name = 'Staff Holder';
+        private static $plural_name = 'Staff Holders';
+		private static $description = 'Displays photos and info of staff members';
 		
-		static $description = 'Displays photos and info of staff members';
-		
-		static $allowed_actions = array(
-			//'view'
-		);
-		
-		public function getCMSFields() {	
+		public function getCMSFields() {
 			$fields = parent::getCMSFields();
 			
 			// Staff
-			$config = GridFieldConfig_RecordEditor::create();	
+			/*$config = GridFieldConfig_RecordEditor::create();
 			$config->addComponent(new GridFieldBulkEditingTools());
 			$config->addComponent(new GridFieldBulkImageUpload());
 			$config->addComponent(new GridFieldSortableRows("SortOrder"));
 		    
 			$PhotosField = GridField::create("StaffMembers", "Staff", Staff::get()->sort('SortOrder'), $config);
 		    
-		    $fields->addFieldToTab("Root.Staff", $PhotosField);
+		    $fields->addFieldToTab("Root.Staff", $PhotosField);*/
 			
 	        return $fields;
 		}
 	
 	}
 	
-	class StaffPage_Controller extends Page_Controller {
+	class StaffPage_Controller extends HolderPage_Controller {
 	
 		function StaffMembers() {
 			return Staff::get()->sort('SortOrder');

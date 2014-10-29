@@ -1,39 +1,34 @@
 <?php
 
-class Staff extends DataObject {
+class Staff extends DetailPage {
 
-	static $db = array(
-		'FirstName'	=> 'Varchar(255)',
-		'LastName'	=> 'Varchar(255)',
+    private static $singular_name = 'Staff';
+    private static $plural_name = 'Staffs';
+    private static $description = 'Staff member';
+    public static $item_class = 'Staff';
+
+	private static $db = array(
 		'JobTitle'	=> 'Varchar(255)',
-		'Email' => 'Varchar(255)',
-		'Description' => 'HTMLText',
-		'SortOrder' => 'Int'
+		'Email' => 'Varchar(255)'
 	);
 	
-	static $has_one = array(
+	private static $has_one = array(
 		'Image' => 'Image'
 	);
 	
-	static $many_many = array(
+	private static $many_many = array(
 
 	);
 	
-	static $belongs_many_many = array(
+	private static $belongs_many_many = array(
 
 	);
 	
-	static $summary_fields = array(
-		'FirstName',
-		'LastName',
+	private static $summary_fields = array(
+        'Title',
 		'JobTitle',
 		'Email'
 	);
-	
-	// set Title
-	public function getTitle() {
-		return $this->FirstName . ' ' . $this->LastName;
-	}
 	
 	//CMS fields
     function getCMSFields()
@@ -46,17 +41,19 @@ class Staff extends DataObject {
         // Image - custom upload
 		$ImageField = new UploadField('Image', 'Image');
 		$ImageField->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
-		//$ImageField->setFolderName('Uploads/Staff');
+		$ImageField->setFolderName('Uploads/Staff');
 		//$fields->addFieldToTab('Root.Images', $ImageField);
         
-        $fields->addFieldsToTab('Root.Main', array(
-        	new TextField('FirstName', 'First Name'),
-        	new TextField('LastName', 'Last Name'),
-        	new TextField('JobTitle', 'Title'),
-        	EmailField::create('Email', 'Email'),
-        	new TextareaField('Description', 'About Staff Member'),
-        	$ImageField
-        ));
+        $fields->addFieldsToTab(
+            'Root.Main',
+            array(
+                TextField::create('JobTitle')
+                    ->setTitle('Title'),
+                EmailField::create('Email')
+                    ->setTitle('Email')
+            ),
+            'Content'
+        );
          
         return $fields;
     }
@@ -69,9 +66,10 @@ class Staff extends DataObject {
     	return $this->Image()->setRatioSize(200,250);
     }
     
-    function canCreate($member=null) { return true; } 
-    function canEdit($member=null) { return true; } 
-    function canDelete($member=null) { return true; }
-    function canView($member=null) { return true; }
+}
+
+class Staff_Controller extends DetailPage_Controller{
+
+
 
 }
