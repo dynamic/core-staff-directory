@@ -12,9 +12,7 @@ class Staff extends DetailPage {
 		'Email' => 'Varchar(255)'
 	);
 	
-	private static $has_one = array(
-		'Image' => 'Image'
-	);
+	private static $has_one = array();
 	
 	private static $many_many = array(
 
@@ -39,9 +37,9 @@ class Staff extends DetailPage {
         $fields->removeByName('SortOrder');
         
         // Image - custom upload
-		$ImageField = new UploadField('Image', 'Image');
+		/*$ImageField = new UploadField('Image', 'Image');
 		$ImageField->getValidator()->allowedExtensions = array('jpg', 'gif', 'png');
-		$ImageField->setFolderName('Uploads/Staff');
+		$ImageField->setFolderName('Uploads/Staff');*/
 		//$fields->addFieldToTab('Root.Images', $ImageField);
         
         $fields->addFieldsToTab(
@@ -56,14 +54,6 @@ class Staff extends DetailPage {
         );
          
         return $fields;
-    }
-    
-    public function Thumbnail(){
-    	return $this->Image()->croppedImage(100,105);
-    }
-    
-    public function Large(){
-    	return $this->Image()->setRatioSize(200,250);
     }
     
 }
