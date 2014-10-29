@@ -51,6 +51,8 @@ class Staff extends DetailPage {
             ),
             'Content'
         );
+
+        $this->extend('updateCMSFields', $fields);
          
         return $fields;
     }

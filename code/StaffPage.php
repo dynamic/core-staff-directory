@@ -34,6 +34,8 @@
 			$PhotosField = GridField::create("StaffMembers", "Staff", Staff::get()->sort('SortOrder'), $config);
 		    
 		    $fields->addFieldToTab("Root.Staff", $PhotosField);*/
+
+            $this->extend('updateCMSFields', $fields);
 			
 	        return $fields;
 		}
