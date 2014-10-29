@@ -1,6 +1,8 @@
 <?php
 
 	class StaffPage extends HolderPage {
+
+        public static $item_class = 'Staff';
 	
 		private static $db = array(
 			

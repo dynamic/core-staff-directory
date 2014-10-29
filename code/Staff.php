@@ -5,7 +5,6 @@ class Staff extends DetailPage {
     private static $singular_name = 'Staff';
     private static $plural_name = 'Staffs';
     private static $description = 'Staff member';
-    public static $item_class = 'Staff';
 
 	private static $db = array(
 		'JobTitle'	=> 'Varchar(255)',
