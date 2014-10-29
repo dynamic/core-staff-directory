@@ -16,7 +16,7 @@
 
 		);
 
-        private static $allowed_children = array('Staff');
+        private static $allowed_children = 'Staff';
 
         private static $singular_name = 'Staff Holder';
         private static $plural_name = 'Staff Holders';
