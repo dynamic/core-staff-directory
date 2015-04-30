@@ -1,0 +1,25 @@
+{
+    "name": "dynamic/core-staff-directory",
+    "description": "The Dynamic Core Staff Directory Module",
+    "keywords": ["silverstripe", "module"],
+    "license": "BSD-3-Clause",
+    "type": "silverstripe-module",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/dynamic/core.git"
+        }
+    ],
+    "require": {
+        "dynamic/core": "dev-master",
+    },
+    "authors": [
+        {
+            "name": "Dynamic Inc",
+            "homepage": "http://dynamicagency.com"
+        }
+    ],
+	"extra": {
+		"installer-name": "dynamic-staff-directory"
+	}
+}
