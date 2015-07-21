@@ -11,7 +11,7 @@
         }
     ],
     "require": {
-        "dynamic/core": "dev-master"
+      "dynamic/core": ">=1.0"
     },
     "authors": [
         {
