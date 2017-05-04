@@ -1,6 +1,13 @@
 {
     "name": "dynamic/core-staff-directory",
     "description": "The Dynamic Core Staff Directory Module",
+    "authors": [
+        {
+            "name": "Dynamic Inc",
+            "email": "dev@dynamicagency.com",
+            "homepage": "http://dynamicagency.com"
+        }
+    ],
     "keywords": ["silverstripe", "module"],
     "license": "BSD-3-Clause",
     "type": "silverstripe-module",
@@ -13,13 +20,18 @@
     "require": {
       "dynamic/core": ">=1.0"
     },
-    "authors": [
-        {
-            "name": "Dynamic Inc",
-            "homepage": "http://dynamicagency.com"
-        }
-    ],
+    "require-dev": {
+      "phpunit/PHPUnit": "^3.7"
+    },
+    "config": {
+      "process-timeout": 600
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
 	"extra": {
-		"installer-name": "dynamic-staff-directory"
+		"installer-name": "dynamic-staff-directory",
+        "branch-alias": {
+          "dev-master": "1.0.x-dev"
+        }
 	}
 }
