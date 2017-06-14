@@ -35,8 +35,6 @@
 		    
 		    $fields->addFieldToTab("Root.Staff", $PhotosField);*/
 
-            $this->extend('updateCMSFields', $fields);
-			
 	        return $fields;
 		}
 	
