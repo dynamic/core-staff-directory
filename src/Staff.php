@@ -4,14 +4,33 @@ namespace Dynamic\Staff;
 
 use \Page;
 use SilverStripe\Forms\EmailField;
+use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
 
+/**
+ * Class Staff
+ * @package Dynamic\Staff
+ */
 class Staff extends Page
 {
+    /**
+     * @var string
+     */
     private static $singular_name = 'Staff Member';
+
+    /**
+     * @var string
+     */
     private static $plural_name = 'Staff Members';
+
+    /**
+     * @var string
+     */
     private static $description = 'Profile of a staff member';
 
+    /**
+     * @var bool
+     */
     private static $can_be_root = false;
 
     /**
@@ -30,13 +49,12 @@ class Staff extends Page
         'Email',
     );
 
-    //CMS fields
+    /**
+     * @return FieldList
+     */
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
-
-        // remove sort order, use gridfield drag and drop instead
-        $fields->removeByName('SortOrder');
 
         $fields->addFieldsToTab('Root.Main',
             array(
