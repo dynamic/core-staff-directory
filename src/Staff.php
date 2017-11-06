@@ -56,11 +56,10 @@ class Staff extends Page
     {
         $fields = parent::getCMSFields();
 
-        $fields->addFieldsToTab('Root.Main',
-            array(
-                TextField::create('JobTitle', 'Title'),
-                EmailField::create('Email'),
-            ),
+        $fields->addFieldsToTab('Root.Main', array(
+            TextField::create('JobTitle', 'Title'),
+            EmailField::create('Email'),
+        ),
             'Content'
         );
 

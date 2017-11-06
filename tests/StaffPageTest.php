@@ -21,7 +21,8 @@ class StaffPageTest extends SapphireTest
     /**
      * Tests StaffMembers()
      */
-    public function testStaffMembers() {
+    public function testStaffMembers()
+    {
         /** @var StaffPage $object */
         $object = $this->objFromFixture(StaffPage::class, 'one');
 
