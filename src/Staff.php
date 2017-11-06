@@ -1,10 +1,23 @@
 <?php
 
-class Staff extends DetailPage
+namespace Dynamic\Staff;
+
+use \Page;
+use SilverStripe\Forms\EmailField;
+use SilverStripe\Forms\TextField;
+
+class Staff extends Page
 {
     private static $singular_name = 'Staff Member';
     private static $plural_name = 'Staff Members';
     private static $description = 'Profile of a staff member';
+
+    private static $can_be_root = false;
+
+    /**
+     * @var string
+     */
+    private static $table_name = 'Staff';
 
     private static $db = array(
         'JobTitle' => 'Varchar(255)',
@@ -35,8 +48,4 @@ class Staff extends DetailPage
 
         return $fields;
     }
-}
-
-class Staff_Controller extends DetailPage_Controller
-{
 }
