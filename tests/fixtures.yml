@@ -1,0 +1,14 @@
+Dynamic\Staff\StaffPage:
+  one:
+    Title: One
+
+Dynamic\Staff\Staff:
+  one:
+    Title: 'Sillius Soddus'
+    Parent: =>Dynamic\Staff\StaffPage.one
+  two:
+    Title: 'Biggus Dickus'
+    Parent: =>Dynamic\Staff\StaffPage.one
+  three:
+    Title: 'Incontinentia Buttocks'
+    Parent: =>Dynamic\Staff\StaffPage.one
