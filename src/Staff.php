@@ -3,6 +3,8 @@
 namespace Dynamic\Staff;
 
 use \Page;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Assets\Image;
 use SilverStripe\Forms\EmailField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
@@ -38,11 +40,24 @@ class Staff extends Page
      */
     private static $table_name = 'Staff';
 
+    /**
+     * @var array
+     */
     private static $db = array(
         'JobTitle' => 'Varchar(255)',
         'Email' => 'Varchar(255)',
     );
 
+    /**
+     * @var array
+     */
+    private static $has_one = [
+        'Image' => Image::class,
+    ];
+
+    /**
+     * @var array
+     */
     private static $summary_fields = array(
         'Title',
         'JobTitle',
@@ -63,6 +78,12 @@ class Staff extends Page
             EmailField::create('Email'),
             ),
             'Content'
+        );
+
+        $fields->insertBefore(
+            'Content',
+            UploadField::create('Image', 'Image')
+                ->setFolderName('Uploads/Staff')
         );
 
         return $fields;

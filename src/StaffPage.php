@@ -21,17 +21,17 @@ class StaffPage extends Page
     /**
      * @var string
      */
-    private static $singular_name = 'Staff Holder';
+    private static $singular_name = 'Staff Directory';
 
     /**
      * @var string
      */
-    private static $plural_name = 'Staff Holders';
+    private static $plural_name = 'Staff Directories';
 
     /**
      * @var string
      */
-    private static $description = 'Displays photos and info of staff members';
+    private static $description = 'Displays list of staff members';
 
     /**
      * @var string
