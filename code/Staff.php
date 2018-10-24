@@ -20,20 +20,20 @@ class Staff extends DetailPage
     //CMS fields
     public function getCMSFields()
     {
-        $fields = parent::getCMSFields();
+        $this->beforeUpdateCMSFields(function (FieldList $fields) {
+            // remove sort order, use gridfield drag and drop instead
+            $fields->removeByName('SortOrder');
 
-        // remove sort order, use gridfield drag and drop instead
-        $fields->removeByName('SortOrder');
+            $fields->addFieldsToTab('Root.Main',
+                array(
+                    TextField::create('JobTitle', 'Title'),
+                    EmailField::create('Email'),
+                ),
+                'Content'
+            );
+        });
 
-        $fields->addFieldsToTab('Root.Main',
-            array(
-                TextField::create('JobTitle', 'Title'),
-                EmailField::create('Email'),
-            ),
-            'Content'
-        );
-
-        return $fields;
+        return parent::getCMSFields();
     }
 }
 
