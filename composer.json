@@ -15,7 +15,7 @@
     "license": "BSD-3-Clause",
     "type": "silverstripe-vendormodule",
     "require": {
-        "silverstripe/recipe-cms": "^1.0",
+        "silverstripe/recipe-cms": "^4.0",
         "silverstripe/vendor-plugin": "^1.0"
     },
     "require-dev": {
