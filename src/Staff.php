@@ -54,17 +54,17 @@ class Staff extends Page
      */
     public function getCMSFields()
     {
-        $fields = parent::getCMSFields();
+        $this->beforeUpdateCMSFields(function (FieldList $fields) {
+            $fields->addFieldsToTab(
+                'Root.Main',
+                [
+                    TextField::create('JobTitle', 'Title'),
+                    EmailField::create('Email'),
+                ],
+                'Content'
+            );
+        });
 
-        $fields->addFieldsToTab(
-            'Root.Main',
-            array(
-            TextField::create('JobTitle', 'Title'),
-            EmailField::create('Email'),
-            ),
-            'Content'
-        );
-
-        return $fields;
+        return parent::getCMSFields();
     }
 }
